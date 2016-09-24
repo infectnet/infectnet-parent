@@ -4,12 +4,7 @@ Things that should be done and exited the `idea` phase.
 
 ## Project-related
 
-* Choose a descriptive and catchy name
-    * Rename organization
-    * Rename repositories
-* Setup `waffle.io` boards for project repositories
 * Add Definition of done
-* Add workflow specification
 
 ## CI/CD
 

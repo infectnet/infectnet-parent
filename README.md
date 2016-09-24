@@ -33,7 +33,7 @@ The [recommended waffle workflow](https://github.com/waffleio/waffle.io/wiki/Rec
 Steps of developing a new feature:
 
 1. Add an issue to the `waffle` board. This creates a GitHub issue and a card in the **Backlog** column.
-    * Assign descriptive tags to the task so it is easier to decide whether it is important or not.
+    * Assign descriptive labels to the task so it is easier to decide whether it is important or not.
 1. When the feature is ready to be worked on, move the card to the **Ready** column.
     * If appropriate, assign a developer to the task.
 1. Create a new feature branch branched off from `develop`. The name of the newly created branch must be similar to the name of the task. It must be hyphenated and must contain the number of the corresponding issue too. Example: `new-feature-#21`

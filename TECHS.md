@@ -28,3 +28,7 @@ The different technologies to be used throughout the project.
     * `babel`
 * Linter
     * `eslint`
+* Game Framework
+    * `phaser`
+* Frontend Framwork
+    * `mithril`

@@ -6,9 +6,9 @@ Child repositories:
  * [InfectNet Server](https://github.com/infectnet/infectnet-server)
  * [InfectNet Browser Frontend](https://github.com/infectnet/infectnet-browser-frontend)
 
-Common InfectNet Waffle board:
+You can access the InfectNet Waffle board at [here](https://waffle.io/infectnet/infectnet-parent/).
 
-[![Stories in Ready](https://badge.waffle.io/infectnet/infectnet-parent.svg?label=ready&title=Ready)](http://waffle.io/infectnet/infectnet-parent)
+[![Throughput Graph](https://graphs.waffle.io/infectnet/infectnet-parent/throughput.svg)](https://waffle.io/infectnet/infectnet-parent/metrics/throughput)
 
 ## Workflow
 

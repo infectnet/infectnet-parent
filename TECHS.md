@@ -30,5 +30,11 @@ The different technologies to be used throughout the project.
     * `eslint`
 * Game Framework
     * `phaser`
-* Frontend Framwork
+* Frontend Framework
     * `mithril`
+* CSS Framework
+    * `bulma.io`
+* i18n Framework
+    * `i18next`
+* Animations
+    * `velocity.js`

@@ -9,7 +9,7 @@ A separate bootstrapper application should be provided that makes server configu
 
 GUI application is preferred using `JavaFX`.
 
-### One-time invite tokens
+### One-time invite tokens - **DONE** :white_check_mark:
 Players of a particular server can be invited using a one-time invite token. The token is an arbitrary character sequence. A unique token must be generated for each player.
 
 The token must be entered when connecting to the server.

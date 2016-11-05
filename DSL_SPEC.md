@@ -74,6 +74,8 @@ So far, so good! Except for one thing. The player does not have a reference for 
 
 The implicit `it` parameter suits our needs and is perfectly named too! However it is a pretty fragile construct to rely on. We should never trust implicit things, but make all stuff explicit. Luckily we can easily accomplish this using numerous different ways! For example we can set the `delegate` of the closure to be a map containing an `it` key with the value of the processed entity ([Groovy maps](http://groovy-lang.org/syntax.html#_maps), [@DelegatesTo](http://docs.groovy-lang.org/docs/latest/html/documentation/core-domain-specific-languages.html#section-delegatesto), [resolve strategy example](http://docs.groovy-lang.org/latest/html/api/groovy/lang/Closure.html#DELEGATE_ONLY)). We can do just the same for the `action` phase.
 
+If an entity participates in multiple `action` phases then only the effects from the last one are preserved. Therefore different code organization can lead to different results. 
+
 Of course this is not a complete guide on the implementation but just the basic idea. Lots of bindings should be provided to the scripts so the player can interact easily with game objects. This includes the map, the resources, the enemies and so on. We should give the players the data and they will forge the logic using the DSL.
 
 ## Examples
@@ -82,27 +84,28 @@ Of course this is not a complete guide on the implementation but just the basic 
 
 ~~~~Groovy
 all workers do {
-  resource = findClosestResourceTo it
+  def resource = findClosestResourceTo it
 
   if ((distanceBetween it, resource) == 1) {
     it mine resource
   }
 
   if (it.resourceLevel == 100) {
-    base = findClosestBaseTo it
+    def base = findClosestBaseTo it
 
     it goto base 
   }
 }
 ~~~~
 
-### Two blocks with filter phase
+Here `findClosestResourceTo`, `findClosestBaseTo` and `distanceBetween` are player-written functions.
 
-Here `findClosestResourceTo`, `findClosestBaseTo` and `distanceBetween` are player-written functions. Note, that we can split this one big `SFA` into separate ones:
+### Two blocks with filter phase
+We can split the one big statement from the previous snippet into separate ones:
 
 ~~~~Groovy
 all workers do {
-  resource = findClosestResourceTo it
+  def resource = findClosestResourceTo it
 
   if ((distanceBetween it, resource) == 1) {
     it mine resource
@@ -112,7 +115,7 @@ all workers do {
 any worker that {
   it.resourceLevel == 100
 } do {
-  base = findClosestBaseTo it
+  def base = findClosestBaseTo it
 
   it goto base
 }
@@ -126,7 +129,7 @@ Still we can do better! Those workers that have `resourceLevel` equal to 100 can
 all workers that {
   canMine it
 } do {
-  resource = findClosestResourceTo it
+  def resource = findClosestResourceTo it
 
   if ((distanceBetween it, resource) == 1) {
     it mine resource
@@ -136,7 +139,7 @@ all workers that {
 any worker that {
   cannotMine it
 } do {
-  base = findClosestBaseTo it
+  def base = findClosestBaseTo it
 
   it goto base
 }
@@ -146,11 +149,11 @@ Here we created two convenience functions to make the code more readable. This c
 
 ### Nested selection
 
-If we take a close look at the SFA statement, we can realize that it's actually a `for-each` construct with filtering built-in. Therefore we can make nested loops in a pretty nice way!
+If we keep in mind that the `SFA` statement is just a `for-each` loop with filtering built in then we can make nested loops in a pretty nice way!
 
 ~~~~Groovy
 all fighters do {
-  currentFighter = it
+  def currentFighter = it
 
   only enemy that {
     distanceBetween currentFighter, it == 1
@@ -160,7 +163,7 @@ all fighters do {
 }
 ~~~~
 
-Here there are some things that should be inspected. First, we saved the `it` of the outer `select` so we can reference it in the inner `select`. Also we did not name it `fighter` because that way we'd have assigned the globally available `fighter` set.
+Here there are some things that should be inspected. First, we saved the `it` of the outer `select` so we can reference it in the inner `select`. Also we did not name it `fighter` because that way we'd have reassigned the globally available `fighter` set.
 
 ### Incorrect usage
 
@@ -168,7 +171,7 @@ Note that it's not possible to save local variables between the `filter` and the
 
 ~~~~Groovy
 all workers that {
-  resource = findClosestResourceTo it
+  def resource = findClosestResourceTo it
 
   distanceBetween it, resource == 1
 } do {

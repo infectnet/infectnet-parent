@@ -135,7 +135,7 @@ def traitWrapper = wrapper.withTraits(GotoTrait); // returns a new instance with
 traitWrapper goto x: 7 y: 8
 ~~~~ 
 
-The static way should be preferred, but we should not forget `withTraits` as its pretty powerful.
+The static way should be preferred, but we should not forget `withTraits` as it's pretty powerful.
 
 ## RequestQueue, ActionQueue and Systems
 

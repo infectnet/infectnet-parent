@@ -252,7 +252,7 @@ It's also easier to add reactions. For example, after an `AttackAction`, the att
 >
 > ... A common rule to avoid this is to avoid sending events from within code that’s handling one.
 
-However, if we stay away from using this technique very frequently, it can be used efficiently, as I don't really see another solution on how these action-reactions things can be implemented.
+However, if we stay away from using this technique very frequently, it can be used efficiently, as I don't really see another solution on how these action-reaction things can be implemented.
 
 ## Sidenote - selectors
 
@@ -266,4 +266,4 @@ enemy.workers
 environment.resources
 ~~~~
 
-In my opinion this is makes more expressive and useful the DSL. Selectors doesn't have to implement any interface but just return an unmodifiable collection, the player can work with.
+In my opinion this makes the DSL more expressive and usefuL. Selectors don't have to implement any interface but just return an unmodifiable collection, the player can work with.

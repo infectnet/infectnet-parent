@@ -5,13 +5,13 @@ The InfectNet game is played on a map which needs to fulfill the following condi
  - two basic types of tiles: caves and rocks
  - no isolated islands of caves
  - an evenly placement of resources and players
- - capable of hosting at least 20 players comfortably 
+ - capable of hosting at least 10 players comfortably 
 
 ## Representation of the Map
 
 For simlicity reasons, the map is represented by a 2D array containing `enum` types such as `cave` and `rock`.
 
-At first 20 000 * 20 000 tiles are generated, to be able to host the maximum of 20 players and using a 1000*1000 tile per player standard. 
+At first 1 000 * 1 000 tiles are generated, to be able to host the maximum of 10 players and using a 100*100 tile per player standard. 
 
 ## Generating the Map
 
@@ -23,7 +23,7 @@ It requires an implementation of a Cellular Automaton.
 The resources should be placed at random, but evenly throughout the map. Only tiles of the `cave` type should be considered to hold a resource. There can be blocks of resources forming a bigger querry. Ideally 20% of the cave should have resources on it, for the players to easily access.
 
 As the game starts and a player enters it should recieve an InfectNest placed at some distance from the other player's InfectNests. 
-This distance is an estimated 1000*1000 tile square around a player's base.
+This distance is an estimated 100 * 100 tile square around a player's base.
 
 ## Additional features
 

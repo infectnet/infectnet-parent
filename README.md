@@ -10,6 +10,12 @@ You can access the InfectNet Waffle board at [here](https://waffle.io/infectnet/
 
 [![Throughput Graph](https://graphs.waffle.io/infectnet/infectnet-parent/throughput.svg)](https://waffle.io/infectnet/infectnet-parent/metrics/throughput)
 
+## What is InfectNet?
+
+InfectNet is a multiplayer pseudo-realtime strategy game in which players can give orders to their units using a special DSL. The game is named InfectNet because these units are basically viruses that battle inside the memory of a computer.
+
+A detailed technical presentation of the backend architecture: [presentations/infectnet-technical.pdf](https://github.com/infectnet/infectnet-parent/blob/master/presentations/infectnet-technical.pdf)
+
 ## Workflow
 
 InfectNet uses [waffle.io](waffle.io) and a downscaled version of [gitflow](https://github.com/nvie/gitflow).
